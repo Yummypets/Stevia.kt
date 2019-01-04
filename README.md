@@ -99,27 +99,29 @@ class FoodTypeFilter(context: Context, wording: String, imageResource: Int) : Ca
 }
 ```
 
+### Why not anko?
+Actually, coming from using Stevia extensively on iOS, first thing we did coming to android was looking for a similar approach: building views in code that don't suck.
+Naturally we first tried anko which is very well known in the community.
+After a while using it, I personally was still frustrated, yes the views were in code but I didn't
+feel like the code was any clearer.
+
+### Not clear
+Indeed anko's classic approach is to do everything at once, View hierarchy, layout, styling.
+While is seems tempting at first sight, the resulting code is compact and was quite hard to maintain.
+
+### Not solving the layout part
+Another issue I found was that although the view was written in code, nothing was actually improving the readability of the layout code itself.
+
 ### ⚙️ Installation
 Copy and paste the source folder for now :)
 
 ### 📖 Documentation
-You can find the full iOS documentation [here](http://freshos.org/SteviaDocs/).
+Fro reference you can find the full iOS documentation [here](http://freshos.org/SteviaDocs/),
+the concepts and naming are very similar.
 
-### Why not anko?
-Actually, coming from using Stevia extensively on iOS, first thing we did coming to android was looking for a similar approach: building views in code that don't suck.
-Naturally we first tried anko which is very well known in the community.
-After a while using it, I personally was still frustrated, yes the views were in code but I
-
-### Not clear
-Indeed anko's classic approach is to do everything at once, View hierarchy, layout, styling.
-The final code was a big blob and was quite hard to maintain when coming back to the code.
-
-### Not solving the layout part
-Another issue I found was that though the view was written in code, nothing was actually improving the readability of the layout code itself.
-
-### Five pillars of Layout
-Stevia chose the path of clearly separating the layout steps.
-It has a neat effect, you know exactly where to look for when coming back for modifying the code.  
+### The Five pillars of Layout
+Stevia chose the path of clearly separating the different layout steps.
+It has a neat effect: you know exactly where to look for when coming back for modifying the code.  
 Remember, code is read **way more often** than it is written!
 
 - 1 View Hierarchy
@@ -127,6 +129,32 @@ Remember, code is read **way more often** than it is written!
 - 3 Styling
 - 4 Content
 - 5 Event binding
+
+#### 1 View Hierarchy
+```swift
+subviews(
+  name,
+  detail
+)
+```
+`subviews()` is essentially a shortcut that calls `addView()` and
+makes sure the view you are using have a unique id
+setting `id = View.generateViewId()` on both subviews and the container itself.
+
+It also has the benefit of being **very visual** so that your can actually **see** what the view hierarchy is.
+This is especially true for nested hierarchies :
+
+```swift
+sv(
+    subview1,
+    subview2.sv(
+        nestedView1,
+        nestedView2̨
+    ),
+    subview3
+)
+```
+
 
 ### About dimensions
 All Stevia margin and sizes use `dp` sizes to you don't have to explicitly specify it.
