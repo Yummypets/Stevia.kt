@@ -107,7 +107,7 @@ feel like the code was any clearer.
 
 ### Not clear
 Indeed anko's classic approach is to do everything at once, View hierarchy, layout, styling.
-While is seems tempting at first sight, the resulting code is compact and was quite hard to maintain.
+While is seems tempting at first, the resulting code is compact and is quite hard to maintain.
 
 ### Not solving the layout part
 Another issue I found was that although the view was written in code, nothing was actually improving the readability of the layout code itself.
@@ -116,7 +116,7 @@ Another issue I found was that although the view was written in code, nothing wa
 Copy and paste the source folder for now :)
 
 ### 📖 Documentation
-Fro reference you can find the full iOS documentation [here](http://freshos.org/SteviaDocs/),
+For reference you can find the full iOS documentation [here](http://freshos.org/SteviaDocs/),
 the concepts and naming are very similar.
 
 ### The Five pillars of Layout
@@ -131,28 +131,45 @@ Remember, code is read **way more often** than it is written!
 - 5 Event binding
 
 #### 1 View Hierarchy
-```swift
+```kotlin
 subviews(
   name,
   detail
 )
 ```
+
 `subviews()` is essentially a shortcut that calls `addView()` and
-makes sure the view you are using have a unique id
+makes sure the view you are using has a unique id
 setting `id = View.generateViewId()` on both subviews and the container itself.
 
 It also has the benefit of being **very visual** so that your can actually **see** what the view hierarchy is.
 This is especially true for nested hierarchies :
 
-```swift
-sv(
+```kotlin
+subviews(
     subview1,
-    subview2.sv(
+    subview2.subviews(
         nestedView1,
         nestedView2̨
     ),
     subview3
 )
+```
+
+Which is the equivalent of the native code below :
+
+```kotlin
+id = View.generateViewId()
+subview1.id = View.generateViewId()
+subview2.id = View.generateViewId()
+subview3.id = View.generateViewId()
+nestedView1.id = View.generateViewId()
+nestedView2.id = View.generateViewId()
+addView(subview1)
+addView(subview2)
+addView(subview3)
+subview2.addView(nestedView1)
+subview2.addView(nestedView2)
 ```
 
 
