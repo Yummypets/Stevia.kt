@@ -5,7 +5,7 @@
 [![License: MIT](http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat)](https://github.com/Yummypets/Stevia.kt/blob/master/LICENSE)
 <!-- TODO ![Release version](https://img.shields.io/github/release/Yummypets/Stevia.kt.svg) -->
 
-`Stevia.kt` helps you build concise views in code making `ConstraintLayout` a breeze.
+With `Stevia.kt`, you build concise views in code using `ConstraintLayout`.
 
 ```kotlin
 detail.top(35).left(12)
@@ -130,7 +130,7 @@ Remember, code is read **way more often** than it is written!
 - 4 Content
 - 5 Event binding
 
-#### 1 View Hierarchy
+#### 1 - View Hierarchy
 ```kotlin
 subviews(
   name,
@@ -172,6 +172,16 @@ subview2.addView(nestedView1)
 subview2.addView(nestedView2)
 ```
 
+#### 2 - Layout
+
+Width & Height
+```kotlin
+view.width(100)
+view.height(100)
+```
+or `view.width(100).height(100)`
+or simply `view.size(100)`
+
 
 ### About dimensions
 All Stevia margin and sizes use `dp` sizes to you don't have to explicitly specify it.
@@ -180,7 +190,7 @@ All Stevia margin and sizes use `dp` sizes to you don't have to explicitly speci
 ### 🖼 Visual Layout Api
 `layout` enables you to write both horizontal and vertical layout at the same time, making it very visual :)
 
-```swift
+```kotlin
 layout(
     100,
     I-email-I,
