@@ -138,7 +138,7 @@ I-label
 // With a custom margin
 I-42-label
 
-Combine all at once \o/
+// Combine all at once \o/
 I-avatar-15-name-20-followButton-I
 ```
 
@@ -158,7 +158,7 @@ Then we have the full **layout in one place** (hence the name).
 ```kotlin
 layout(
     50,
-    |-15-avatar.size(60)
+    I-15-avatar.size(60)
   )
 ```
 *The avatar is 50px from the top with a left margin of 15px and a size of 60px*
