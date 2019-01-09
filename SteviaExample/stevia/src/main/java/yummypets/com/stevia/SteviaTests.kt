@@ -1,4 +1,5 @@
-package com.octopepper.yummypets.common.stevia
+package yummypets.com.stevia
+
 import android.content.Context
 import android.view.View
 

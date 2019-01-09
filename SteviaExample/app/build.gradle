@@ -1,7 +1,5 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -23,7 +21,11 @@ android {
 }
 
 dependencies {
-    implementation project(':stevia')
+
+//    implementation project(':stevia') // local
+    implementation 'yummypets.stevia.android:stevia:1.0.0' // server
+
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:28.0.0'

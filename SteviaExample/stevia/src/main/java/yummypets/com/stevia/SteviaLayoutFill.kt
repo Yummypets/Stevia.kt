@@ -1,4 +1,4 @@
-package com.octopepper.yummypets.common.stevia
+package yummypets.com.stevia
 
 import android.support.constraint.ConstraintSet
 import android.view.View

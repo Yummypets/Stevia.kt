@@ -3,7 +3,7 @@ package yummypets.com.steviaexample
 import android.content.Context
 import android.support.constraint.ConstraintLayout
 import android.widget.TextView
-import com.octopepper.yummypets.common.stevia.*
+import yummypets.com.stevia.*
 
 class MyView(context: Context): ConstraintLayout(context) {
 
