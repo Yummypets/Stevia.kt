@@ -120,13 +120,21 @@ view.fillVertically(20) // padding
 view.fillContainer()
 ```
 
-#####  Positioning
+#####  Absolute Positioning
 ```kotlin
 view.top(100).left(30)
 view.bottom(20).right(40)
 ```
 
-These are all chainable :chain: :rocket:
+##### Relative Positioning
+
+```kotlin
+view.constrainTopToBottomOf(button)
+view.constrainLeftToRightOf(button)
+view.followEdgesOf(button)
+```
+
+These are all chainable :rocket:
 ```kotlin
 view.size(60).top(80).centerHorizontally()
 ```
@@ -188,7 +196,7 @@ This means you have to explicitly opt-out from `wrap content` mode when you want
 
 For example
 ```
-label.width(matchConstraints) // This is needed, and is the same as == layoutParams.width = ConstraintSet.MATCH_CONSTRAINT
+label.width(matchConstraints) // This is needed, and is the same as == label.layoutParams.width = ConstraintSet.MATCH_CONSTRAINT
 label.left(20).right(20)
 ```
 
