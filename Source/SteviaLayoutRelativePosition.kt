@@ -107,3 +107,10 @@ fun <T : View> T.constrainBottomToBottomOf(viewId: Int, margin: Int = 0): T {
     return this
 }
 
+fun <T : View> T.followEdgesOf(view: View, margin: Int = 0): T {
+    constrainTopToTopOf(view)
+    constrainBottomToBottomOf(view)
+    constrainLeftToLeftOf(view)
+    constrainRightToRightOf(view)
+    return this
+}
