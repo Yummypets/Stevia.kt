@@ -101,6 +101,8 @@ subview2.addView(nestedView2)
 ```kotlin
 view.width(100)
 view.height(50)
+view.percentWidth(0.3F)
+view.percentHeight(0.5F)
 view.size(80)
 ```
 
