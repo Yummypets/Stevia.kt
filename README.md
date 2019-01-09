@@ -41,7 +41,35 @@ View layout becomes **fun**, **concise**, **maintainable** and dare I say, *beau
 
 
 ## ⚙️ Installation
-Copy and paste the source folder for now :)
+Gradle
+
+In your top project `.gradle` file add `maven { url 'https://dl.bintray.com/s4cha/Stevia' }` like so
+```
+...
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://dl.bintray.com/s4cha/Stevia' }
+    }
+}
+...
+
+```
+
+then in your app `.gradle` file add `implementation 'yummypets.stevia.android:stevia:1.0.0'`
+
+like so
+```
+dependencies {
+    ...
+    implementation 'yummypets.stevia.android:stevia:1.0.0' // server
+  }
+```
+
+ - Manually Copy and paste the source folder for now :)
+
+
 
 ## 📖 Documentation
 For reference you can also find the full iOS documentation [here](http://freshos.org/SteviaDocs/),
