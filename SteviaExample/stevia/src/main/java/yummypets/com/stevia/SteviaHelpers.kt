@@ -8,7 +8,7 @@ import android.util.TypedValue
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
-import kotlinx.coroutines.*
+//import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 
 // Constants
@@ -58,14 +58,14 @@ var Float.dp: Float
 
 // Events
 
-fun View.onClick(context: CoroutineContext = Dispatchers.Main,
-                 handler: suspend CoroutineScope.(v: android.view.View?) -> Unit) {
-    setOnClickListener { v ->
-        GlobalScope.launch(context, CoroutineStart.DEFAULT) {
-            handler(v)
-        }
-    }
-}
+//fun View.onClick(context: CoroutineContext = Dispatchers.Main,
+//                 handler: suspend CoroutineScope.(v: android.view.View?) -> Unit) {
+//    setOnClickListener { v ->
+//        GlobalScope.launch(context, CoroutineStart.DEFAULT) {
+//            handler(v)
+//        }
+//    }
+//}
 
 // Layout - Helpers
 
