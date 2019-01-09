@@ -179,6 +179,33 @@ layout(
 )
 ```
 
+##### Noteworthy
+`ConstraintLayout` children are supposed to have their width and heights set to `MATCH_CONSTRAINT`.
+
+```kotlin
+layoutParams.width = ConstraintSet.MATCH_CONSTRAINT`
+layoutParams.height = ConstraintSet.MATCH_CONSTRAINT`
+```
+
+This can be problematic with `TextView` or `Button` for example, since they h set to `WRAP_CONTENT` by default.
+
+This means you have to explicitly opt-out from `wrap content` content mode when you want to stretch them out.
+
+For example
+```
+label.width(matchConstraints) // This is needed, and is the same as == layoutParams.width = ConstraintSet.MATCH_CONSTRAINT
+label.left(20).right(20)
+```
+
+Thankfully Stevia does this automatically for you when it's **obvious** that you don't want to have `wrapContent`.
+For example if you write
+```kotlin
+label.fillHorizontally()
+```
+Stevia automatically sets `label.layoutParams.width = ConstraintSet.MATCH_CONSTRAINT`.
+
+Please be aware that this has nothing to do with Stevia itself, this a just the way `ConstraintLayout` works :)
+
 #### 3 - Styling
 
 Well, just call `style` on a View subclass :
