@@ -44,7 +44,7 @@ View layout becomes **fun**, **concise**, **maintainable** and dare I say, *beau
 Gradle
 
 In your top project `.gradle` file add `maven { url 'https://dl.bintray.com/s4cha/Stevia' }` like so
-```
+```gradle
 ...
 allprojects {
     repositories {
@@ -60,7 +60,7 @@ allprojects {
 then in your app `.gradle` file add `implementation 'yummypets.stevia.android:stevia:1.0.1'`
 
 like so
-```
+```gradle
 dependencies {
     ...
     implementation 'yummypets.stevia.android:stevia:1.0.1' // server
