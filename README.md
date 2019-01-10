@@ -57,13 +57,13 @@ allprojects {
 
 ```
 
-then in your app `.gradle` file add `implementation 'yummypets.stevia.android:stevia:1.0.0'`
+then in your app `.gradle` file add `implementation 'yummypets.stevia.android:stevia:1.0.1'`
 
 like so
 ```
 dependencies {
     ...
-    implementation 'yummypets.stevia.android:stevia:1.0.0' // server
+    implementation 'yummypets.stevia.android:stevia:1.0.1' // server
   }
 ```
 
