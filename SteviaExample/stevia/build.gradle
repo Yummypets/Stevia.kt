@@ -8,7 +8,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 26
+        minSdkVersion 9
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -71,7 +71,7 @@ artifacts {
 }
 
 group = 'yummypets.stevia.android'
-version = '1.0.0'
+version = '1.0.1'
 
 install {
     repositories.mavenInstaller {
@@ -84,7 +84,7 @@ install {
             packaging 'aar'
             groupId 'yummypets.stevia.android'
             artifactId 'stevia'
-            version '1.0.0'
+            version '1.0.1'
 
             licenses {
                 license {
@@ -122,10 +122,10 @@ bintray {
         vcsUrl = 'https://github.com/Yummypets/Stevia.kt.git'
         publish = true
         version {
-            name = '1.0.0'
-            desc = 'Stevia 1.0.0'
+            name = '1.0.1'
+            desc = 'Stevia 1.0.1'
             released = new Date()
-            vcsTag = '1.0.0'
+            vcsTag = '1.0.1'
         }
     }
 }
