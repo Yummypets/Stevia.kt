@@ -158,7 +158,8 @@ view.bottom(20).right(40)
 
 ```kotlin
 view.constrainTopToBottomOf(button)
-view.constrainLeftToRightOf(button)
+view.constrainCenterXToCenterXOf(button)
+view.constrainCenterYToBottomOf(button)
 view.followEdgesOf(button)
 ```
 
@@ -166,6 +167,14 @@ These are all chainable :rocket:
 ```kotlin
 view.size(60).top(80).centerHorizontally()
 ```
+
+##### Alignment
+
+```kotlin
+alignHorizontally(viewA, viewB, viewC) // aligns B & C with A.
+alignLefts(viewA, viewB, viewC)
+```
+
 
 ##### Horizontal layout
 ```kotlin
@@ -215,7 +224,10 @@ layout(
 )
 ```
 
-##### Noteworthy
+#### Noteworthy
+
+##### ConstraintLayout
+
 `ConstraintLayout` children are supposed to have their `width` and `height` set to `MATCH_CONSTRAINT`.
 
 This can be problematic with `TextView` or `Button` for example, since they are set to `WRAP_CONTENT` by default.
@@ -236,6 +248,17 @@ label.fillHorizontally()
 Stevia automatically sets `label.layoutParams.width = ConstraintSet.MATCH_CONSTRAINT`.
 
 Please be aware that this has nothing to do with Stevia itself, this just standard `ConstraintLayout` machinery :)
+
+##### ConstraintLayout
+
+Note that the way `ConstraintLayout` works is that constraints are **not reflexive**.
+This can be quite misleading at first, especially for those of you coming from iOS with Autolayout, where this is the case.
+This is very important to keep in mind, this means that
+```kotlin
+viewA.constrainLeftToRightOf(viewB) != viewB.constrainRightToLeftOf(viewA)
+alignHorizontally(viewA, viewB) != alignHorizontally(viewB, viewA)
+```
+
 
 #### 3 - Styling
 
