@@ -249,7 +249,7 @@ Stevia automatically sets `label.layoutParams.width = ConstraintSet.MATCH_CONSTR
 
 Please be aware that this has nothing to do with Stevia itself, this just standard `ConstraintLayout` machinery :)
 
-##### ConstraintLayout
+##### Reflexivity
 
 Note that the way `ConstraintLayout` works is that constraints are **not reflexive**.
 This can be quite misleading at first, especially for those of you coming from iOS with Autolayout, where this is the case.
