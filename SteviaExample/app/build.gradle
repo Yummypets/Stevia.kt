@@ -23,7 +23,7 @@ android {
 dependencies {
 
     // implementation project(':stevia') // local
-    implementation 'yummypets.stevia.android:stevia:1.0.1' // server
+    implementation 'yummypets.stevia.android:stevia:1.0.2' // server
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
