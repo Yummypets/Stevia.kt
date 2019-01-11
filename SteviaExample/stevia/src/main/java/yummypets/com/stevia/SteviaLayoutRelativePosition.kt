@@ -107,6 +107,89 @@ fun <T : View> T.constrainBottomToBottomOf(viewId: Int, margin: Int = 0): T {
     return this
 }
 
+
+// Center Y
+
+// This is made possible by creating a "GONE" guideline and center on the guideline instead :)
+// TODO: use android guideline instead?
+fun <T : View> T.constrainCenterYToBottomOf(view: View): T {
+    (parent as? ConstraintLayout)?.let { constraintLayout ->
+        constraintLayout.addConstraints {
+            // TODO: use android guideline instead?
+            val guideline = View(context)
+            guideline.id = View.generateViewId()
+            constraintLayout.addView(guideline)
+            guideline.visibility = View.GONE
+            guideline.constrainBottomToBottomOf(view)
+            centerVertically(id, guideline.id)
+        }
+    }
+    return this
+}
+
+fun <T : View> T.constrainCenterYToTopOf(view: View): T {
+    (parent as? ConstraintLayout)?.let { constraintLayout ->
+        constraintLayout.addConstraints {
+            val guideline = View(context)
+            guideline.id = View.generateViewId()
+            constraintLayout.addView(guideline)
+            guideline.visibility = View.GONE
+            guideline.constrainTopToTopOf(view)
+            centerVertically(id, guideline.id)
+        }
+    }
+    return this
+}
+
+fun <T : View> T.constrainCenterYToCenterYOf(view: View): T {
+    (parent as? ConstraintLayout)?.addConstraints {
+        centerVertically(id, view.id)
+    }
+    return this
+}
+
+
+// Center X
+
+fun <T : View> T.constrainCenterXToLeftOf(view: View): T {
+    (parent as? ConstraintLayout)?.let { constraintLayout ->
+        constraintLayout.addConstraints {
+            val guideline = View(context)
+            guideline.id = View.generateViewId()
+            constraintLayout.addView(guideline)
+            guideline.visibility = View.GONE
+            guideline.constrainLeftToLeftOf(view)
+            centerHorizontally(id, guideline.id)
+        }
+    }
+    return this
+}
+
+fun <T : View> T.constrainCenterXToRightOf(view: View): T {
+    (parent as? ConstraintLayout)?.let { constraintLayout ->
+        constraintLayout.addConstraints {
+            val guideline = View(context)
+            guideline.id = View.generateViewId()
+            constraintLayout.addView(guideline)
+            guideline.visibility = View.GONE
+            guideline.constrainRightToRightOf(view)
+            centerHorizontally(id, guideline.id)
+        }
+    }
+    return this
+}
+
+
+fun <T : View> T.constrainCenterXToCenterXOf(view: View): T {
+    (parent as? ConstraintLayout)?.addConstraints {
+        centerHorizontally(id, view.id)
+    }
+    return this
+}
+
+
+// Follow Edges
+
 fun <T : View> T.followEdgesOf(view: View, margin: Int = 0): T {
     constrainTopToTopOf(view)
     constrainBottomToBottomOf(view)
