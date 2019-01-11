@@ -224,42 +224,6 @@ layout(
 )
 ```
 
-#### Noteworthy
-
-##### ConstraintLayout
-
-`ConstraintLayout` children are supposed to have their `width` and `height` set to `MATCH_CONSTRAINT`.
-
-This can be problematic with `TextView` or `Button` for example, since they are set to `WRAP_CONTENT` by default.
-
-This means you have to explicitly opt-out from `wrap content` mode when you want to stretch them out.
-
-For example
-```
-label.width(matchConstraints) // This is needed, and is the same as == label.layoutParams.width = ConstraintSet.MATCH_CONSTRAINT
-label.left(20).right(20)
-```
-
-Thankfully Stevia does this automatically for you when it's **obvious** that you don't want to have `wrapContent`.
-For example if you write
-```kotlin
-label.fillHorizontally()
-```
-Stevia automatically sets `label.layoutParams.width = ConstraintSet.MATCH_CONSTRAINT`.
-
-Please be aware that this has nothing to do with Stevia itself, this just standard `ConstraintLayout` machinery :)
-
-##### Reflexivity
-
-Note that the way `ConstraintLayout` works is that constraints are **not reflexive**.
-This can be quite misleading at first, especially for those of you coming from iOS with Autolayout, where this is the case.
-This is very important to keep in mind, this means that
-```kotlin
-viewA.constrainLeftToRightOf(viewB) != viewB.constrainRightToLeftOf(viewA)
-alignHorizontally(viewA, viewB) != alignHorizontally(viewB, viewA)
-```
-
-
 #### 3 - Styling
 
 Well, just call `style` on a View subclass :
@@ -357,6 +321,43 @@ class FoodTypeFilter(context: Context, wording: String, imageResource: Int) : Ca
     }
 }
 ```
+
+
+## Noteworthy
+
+### ConstraintLayout
+
+`ConstraintLayout` children are supposed to have their `width` and `height` set to `MATCH_CONSTRAINT`.
+
+This can be problematic with `TextView` or `Button` for example, since they are set to `WRAP_CONTENT` by default.
+
+This means you have to explicitly opt-out from `wrap content` mode when you want to stretch them out.
+
+For example
+```
+label.width(matchConstraints) // This is needed, and is the same as == label.layoutParams.width = ConstraintSet.MATCH_CONSTRAINT
+label.left(20).right(20)
+```
+
+Thankfully Stevia does this automatically for you when it's **obvious** that you don't want to have `wrapContent`.
+For example if you write
+```kotlin
+label.fillHorizontally()
+```
+Stevia automatically sets `label.layoutParams.width = ConstraintSet.MATCH_CONSTRAINT`.
+
+Please be aware that this has nothing to do with Stevia itself, this just standard `ConstraintLayout` machinery :)
+
+### Reflexivity
+
+Note that the way `ConstraintLayout` works is that constraints are **not reflexive**.
+This can be quite misleading at first, especially for those of you coming from iOS with Autolayout, where this is the case.
+This is very important to keep in mind, this means that
+```kotlin
+viewA.constrainLeftToRightOf(viewB) != viewB.constrainRightToLeftOf(viewA)
+alignHorizontally(viewA, viewB) != alignHorizontally(viewB, viewA)
+```
+
 
 ### Why not anko?
 Actually, coming from using Stevia extensively on iOS, first thing we did coming to android was looking for a similar approach: building views in code that don't suck.
