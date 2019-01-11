@@ -71,7 +71,7 @@ artifacts {
 }
 
 group = 'yummypets.stevia.android'
-version = '1.0.1'
+version = '1.0.2'
 
 install {
     repositories.mavenInstaller {
@@ -84,7 +84,7 @@ install {
             packaging 'aar'
             groupId 'yummypets.stevia.android'
             artifactId 'stevia'
-            version '1.0.1'
+            version '1.0.2'
 
             licenses {
                 license {
@@ -122,10 +122,10 @@ bintray {
         vcsUrl = 'https://github.com/Yummypets/Stevia.kt.git'
         publish = true
         version {
-            name = '1.0.1'
-            desc = 'Stevia 1.0.1'
+            name = '1.0.2'
+            desc = 'Stevia 1.0.2'
             released = new Date()
-            vcsTag = '1.0.1'
+            vcsTag = '1.0.2'
         }
     }
 }
