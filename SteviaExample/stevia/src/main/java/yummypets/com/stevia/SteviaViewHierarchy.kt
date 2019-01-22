@@ -6,12 +6,16 @@ import android.view.ViewGroup
 // View Hierarchy
 
 fun ViewGroup.subviews(vararg views: View): View {
-    if (id == -1) {
-        id = View.generateViewId()
-    }
+    assignViewIdIfNeeded()
     for (v in views) {
-        v.id = View.generateViewId()
+        v.assignViewIdIfNeeded()
         addView(v)
     }
     return this
+}
+
+fun View.assignViewIdIfNeeded() {
+    if (id == -1) {
+        id = View.generateViewId()
+    }
 }
