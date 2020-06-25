@@ -1,3 +1,6 @@
+⚠️ For all new projects we strongly encourage you to use [Compose](https://developer.android.com/jetpack/compose), the new official way to build views in Kotlin. Stevia.kt will no longer be updated since Compose is now the way forward :)
+
+
 # Stevia.kt
 [![Language: Kotlin](https://img.shields.io/badge/language-kotlin-7963FE.svg?style=flat)](https://kotlinlang.org)
 ![Platform: Android 8+](https://img.shields.io/badge/platform-Android-68b846.svg?style=flat)
